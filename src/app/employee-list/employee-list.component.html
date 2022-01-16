@@ -1,0 +1,28 @@
+<br>
+<table class="table table-striped table-bordered">
+  <thead class="thead thead-dark">
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Branch</th>
+      <th>Date of Joining</th>
+      <th>Preference</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ed of service.list">
+      <td (click)="populateForm(ed)">{{ed.firstName}}</td>
+      <td (click)="populateForm(ed)">{{ed.lastName}}</td>
+      <td (click)="populateForm(ed)">{{ed.gender}}</td>
+      <td (click)="populateForm(ed)">{{ed.department}}</td>
+      <td (click)="populateForm(ed)">{{ed.branch}}</td>
+      <td (click)="populateForm(ed)">{{ed.doj}}</td>
+      <td (click)="populateForm(ed)">{{ed.preference}}</td>
+      <td> <i class="far fa-trash-alt fa-lg text-danger" (click)="onDeleteRecord(ed.employeeId)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>

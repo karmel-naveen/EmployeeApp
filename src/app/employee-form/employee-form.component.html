@@ -1,0 +1,80 @@
+<div class="jumbotron py-3">
+  <h1 class="display-4 text-center">Employee Opinion Form</h1>
+</div>
+
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="firstName">First Name</label>
+      <input class="form-control "
+      name="firstName" #firstName="ngModel" [(ngModel)]="this.service.formData.firstName"
+      required
+      [class.invalid]="firstName.invalid && firstName.touched">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last Name</label>
+      <input class="form-control "
+      name="lastName" #lastName="ngModel" [(ngModel)]="this.service.formData.lastName"
+      required
+      [class.invalid]="lastName.invalid && lastName.touched">
+    </div>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" value="Male" name="gender" id="flexRadioDefault1"
+    #gender="ngModel" [(ngModel)]="this.service.formData.gender">
+    <label class="form-check-label" for="flexRadioDefault1">
+      Male
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" value="Female" name="gender"
+    #gender="ngModel" [(ngModel)]="this.service.formData.gender"id="flexRadioDefault2" checked>
+    <label class="form-check-label" for="flexRadioDefault2">
+      Female
+    </label>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="department">Department</label>
+        <input class="form-control"
+        name="department" #name="ngModel" [(ngModel)]="this.service.formData.department"
+        list="datalistOptions"
+        required>
+    </div>
+    <datalist id="datalistOptions">
+      <option value="FrontEnd Development">
+      <option value="BackEnd Develpment">
+      <option value="DataBase">
+      <option value="HR">
+      <option value="Marketing"></datalist>
+    <div class="form-group col-md-6">
+      <label for="branch">Branch</label>
+        <input class="form-control"
+        name="branch" #branch="ngModel" [(ngModel)]="this.service.formData.branch"
+        list="datalistOptions2" required>
+    </div>
+    <datalist id="datalistOptions2">
+      <option value="Chennai">
+      <option value="Bangalore">
+      <option value="Hydrabad">
+      <option value="Kochin">
+</datalist>
+  </div>
+  <div class="form-group">
+    <label for="doj">Date of Joining</label>
+      <input type="date" class="form-control"
+      name="doj" #doj="ngModel" [(ngModel)]="this.service.formData.doj" required>
+  </div>
+  <div class="form-group">
+    <label for="preference">Preference</label>
+      <input class="form-control"
+      name="preference" #preference="ngModel" [(ngModel)]="this.service.formData.preference"
+      list="datalistOptions3"required>
+  </div>
+  <datalist id="datalistOptions3">
+    <option value="Office">
+    <option value="WorkFromHome">
+    <option value="Hybrid(3 days office)"></datalist>
+  <hr>
+  <button  type="submit"class="btn btn-primary btn-lg btn-block"[disabled]="form.invalid">Submit</button>
+</form>
